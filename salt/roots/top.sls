@@ -5,4 +5,5 @@ base:
     - dev.cpp
     - dev.python
     - dev.arm-toolchain
+    - dev.kicad
 
