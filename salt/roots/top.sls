@@ -3,6 +3,7 @@ base:
     - core
     - system
     - tools
+    - media
     - dev.cpp
     - dev.python
     - dev.arm-toolchain
