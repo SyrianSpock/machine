@@ -1,15 +1,15 @@
 vim:
-  pkg.installed
+    pkg.installed
 
 git:
-  pkg.installed
+    pkg.installed
 
 mercurial:
-  pkg.installed
+    pkg.installed
 
 # Friendly Interactive SHell
 fish:
-  pkg.installed
+    pkg.installed
 
 screen:
     pkg.installed

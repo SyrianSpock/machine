@@ -1,6 +1,6 @@
 # Everything needed for Python code
 virtualenvwrapper:
-  pkg.installed
+    pkg.installed
 
 python-dev:
     pkg.installed
