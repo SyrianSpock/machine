@@ -7,4 +7,5 @@ base:
     - dev.arm-toolchain
     - dev.kicad
     - dev.ros
+    - dev.ruby
 
