@@ -8,13 +8,6 @@ sublime_text_repo:
 sublime-text-installer:
     pkg.installed
 
-sublime-config:
-    file.managed:
-        - name: ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
-        - source: salt://sublime/config
-        - user: salah
-        - force: True
-
 sublime-pkg-control:
     cmd.run:
         - name: wget "https://sublime.wbond.net/Package Control.sublime-package"
@@ -28,5 +21,19 @@ sublime-packages:
     file.managed:
         - name: '~/.config/sublime-text-3/Packages/User/Package Control.sublime-settings'
         - source: salt://sublime/packages
+        - user: salah
+        - force: True
+
+sublime-config:
+    file.managed:
+        - name: ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
+        - source: salt://sublime/config
+        - user: salah
+        - force: True
+
+sublime-keybindings:
+    file.managed:
+        - name: '~/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap'
+        - source: salt://sublime/keybindings
         - user: salah
         - force: True
