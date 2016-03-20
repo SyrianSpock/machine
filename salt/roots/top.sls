@@ -12,3 +12,5 @@ base:
         - dev.ruby
         - dev.sublime
         - dev.latex
+        - vm.virtualbox
+        - users
