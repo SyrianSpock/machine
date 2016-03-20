@@ -1,0 +1,16 @@
+{
+    "bootstrapped": true,
+    "installed_packages":
+    [
+        "BracketHighlighter",
+        "ClipboardDiff",
+        "GitGutter",
+        "Markdown Preview",
+        "Neon Color Scheme",
+        "Non Text Files",
+        "Python Improved",
+        "SideBarEnhancements",
+        "SublimeCodeIntel",
+        "Theme - Flatland"
+    ]
+}

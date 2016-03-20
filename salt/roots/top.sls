@@ -5,13 +5,13 @@ base:
         - tools
         - git
         - media
+        - sublime
         - dev.cpp
         - dev.python
         - dev.arm-toolchain
         - dev.kicad
         - dev.ros
         - dev.ruby
-        - dev.sublime
         - dev.latex
         - vm.virtualbox
         - vm.docker
