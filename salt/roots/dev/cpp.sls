@@ -1,14 +1,19 @@
 # Everything needed to write C/C++ code.
 
 build-essential:
-  pkg.installed
+    pkg.installed
 
 clang:
-  pkg.installed
+    pkg.installed
 
 cmake:
-  pkg.installed
+    pkg.installed
 
 libcpputest-dev:
-  pkg.installed
+    pkg.installed
 
+autoconf:
+    pkg.installed
+
+automake:
+    pkg.installed
