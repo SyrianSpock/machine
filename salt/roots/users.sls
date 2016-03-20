@@ -8,3 +8,4 @@ salah:
             - dialout
             - plugdev
             - vboxusers
+            - docker

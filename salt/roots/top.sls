@@ -14,4 +14,5 @@ base:
         - dev.sublime
         - dev.latex
         - vm.virtualbox
+        - vm.docker
         - users
