@@ -1,9 +1,6 @@
 vim:
     pkg.installed
 
-git:
-    pkg.installed
-
 mercurial:
     pkg.installed
 

@@ -3,6 +3,7 @@ base:
         - core
         - system
         - tools
+        - git
         - media
         - dev.cpp
         - dev.python
