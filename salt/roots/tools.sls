@@ -2,9 +2,9 @@ synapse_repo:
     pkgrepo.managed:
         - ppa: elementary-os/unstable-upstream
         - require_in:
-            - pkg: indicator-synapse
+            - pkg: synapse
 
-indicator-synapse:
+synapse:
     pkg.installed
 
 gimp:
