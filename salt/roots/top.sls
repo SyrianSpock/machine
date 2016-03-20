@@ -6,4 +6,5 @@ base:
     - dev.python
     - dev.arm-toolchain
     - dev.kicad
+    - dev.ros
 
