@@ -9,4 +9,5 @@ base:
     - dev.kicad
     - dev.ros
     - dev.ruby
+    - dev.sublime
 
