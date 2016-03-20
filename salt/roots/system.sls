@@ -5,3 +5,8 @@
 ubuntu-desktop:
     pkg.installed
 
+ambiance-colors:
+    pkg.installed
+
+radiance-colors:
+    pkg.installed

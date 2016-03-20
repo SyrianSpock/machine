@@ -2,6 +2,7 @@ base:
   '*':
     - core
     - system
+    - tools
     - dev.cpp
     - dev.python
     - dev.arm-toolchain

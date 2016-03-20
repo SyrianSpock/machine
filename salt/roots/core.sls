@@ -25,3 +25,6 @@ aptitude:
 
 silversearcher-ag:
     pkg.installed
+
+chromium-browser:
+    pkg.installed
