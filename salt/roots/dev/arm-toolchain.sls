@@ -15,20 +15,21 @@ dfu-util:
 git://git.code.sf.net/p/openocd/code:
     git.latest:
         - rev: master
-        - target: /tmp/openocd
-        - user: salah
+        - target: /usr/src/openocd
+        - user: root
         - require:
             - pkg: git
 
 openocd:
   cmd.run:
-    - cwd: /tmp/openocd
-    - user: salah
+    - cwd: /usr/src/openocd
+    - user: root
     - name: |
         ./bootstrap
         ./configure --prefix=/usr/local
         make
-        sudo make install
+        make install
+    - unless: /usr/local/bin/openocd
 
 /etc/udev/rules.d/90-openocd.rules:
     file.managed:
