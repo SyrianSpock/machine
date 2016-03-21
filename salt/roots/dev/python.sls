@@ -34,19 +34,25 @@ libopenblas-dev:
     "mock",
     "heapdict",
     "pykka",
-    "numpy",
+    "matplotlib",
+    "Pillow",
+    "sklearn",
+    "scikit-image",
+    "scikit-neuralnetwork",
+    "ipython",
+    "nose",
 ]%}
 {{ pkg }}-python3:
     pip.installed:
         - name: {{ pkg }}
-        - bin_env: /usr/bin/pip3
+        - bin_env: /usr/local/bin/pip3
         - require:
             - pkg: python3-pip
 
 {{ pkg }}-python2:
     pip.installed:
         - name: {{ pkg }}
-        - bin_env: /usr/bin/pip2
+        - bin_env: /usr/local/bin/pip2
         - require:
             - pkg: python-pip
 {% endfor %}
@@ -55,6 +61,13 @@ libopenblas-dev:
 # Fabric is a python 2 only package
 fabric:
     pip.installed:
-        - bin_env: /usr/bin/pip2
+        - name: Fabric
+        - bin_env: /usr/local/bin/pip2
         - require:
             - pkg: python-pip
+
+unittest2:
+    pip.installed:
+        - bin_env: /usr/local/bin/pip3
+        - require:
+            - pkg: python3-pip

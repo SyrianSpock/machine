@@ -21,14 +21,14 @@ ros_repo:
 rospkg-python3:
     pip.installed:
         - name: rospkg
-        - bin_env: /usr/bin/pip3
+        - bin_env: /usr/local/bin/pip3
         - require:
             - pkg: python3-pip
 
 catkin-pkg-python3:
     pip.installed:
         - name: catkin-pkg
-        - bin_env: /usr/bin/pip3
+        - bin_env: /usr/local/bin/pip3
         - require:
             - pkg: python3-pip
 
