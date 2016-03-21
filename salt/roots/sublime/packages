@@ -3,7 +3,7 @@
     "installed_packages":
     [
         "BracketHighlighter",
-        "ClipboardDiff",
+        "Clipboard Diff",
         "GitGutter",
         "Markdown Preview",
         "Neon Color Scheme",
