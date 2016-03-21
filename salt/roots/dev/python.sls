@@ -41,6 +41,8 @@ libopenblas-dev:
     "scikit-neuralnetwork",
     "ipython",
     "nose",
+    "pyinotify",
+    "sniffer",
 ]%}
 {{ pkg }}-python3:
     pip.installed:
