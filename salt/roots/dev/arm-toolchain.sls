@@ -33,5 +33,5 @@ openocd:
 
 /etc/udev/rules.d/90-openocd.rules:
     file.managed:
-        - source: salt://etc/udev-openocd.rules
+        - source: /usr/src/openocd/contrib/99-openocd.rules
         - mode: 644
