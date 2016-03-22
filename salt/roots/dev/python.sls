@@ -73,3 +73,9 @@ unittest2:
         - bin_env: /usr/local/bin/pip3
         - require:
             - pkg: python3-pip
+
+numpyson:
+    pip.installed:
+        - bin_env: /usr/local/bin/pip3
+        - require:
+            - pkg: python3-pip
