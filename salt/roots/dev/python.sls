@@ -43,6 +43,7 @@ libopenblas-dev:
     "nose",
     "pyinotify",
     "sniffer",
+    "cairocffi",
 ]%}
 {{ pkg }}-python3:
     pip.installed:
