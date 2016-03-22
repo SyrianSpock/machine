@@ -4,6 +4,7 @@
     [
         "BracketHighlighter",
         "Clipboard Diff",
+        "Git",
         "GitGutter",
         "Markdown Preview",
         "Neon Color Scheme",
