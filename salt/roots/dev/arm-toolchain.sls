@@ -2,11 +2,11 @@
 arm-toolchain:
     # Package repository
     pkgrepo.managed:
-        - ppa: terry.guo/gcc-arm-embedded
+        - ppa: team-gcc-arm-embedded/ppa
         - require_in:
-            - pkg: gcc-arm-none-eabi
+            - pkg: gcc-arm-embedded
 
-gcc-arm-none-eabi:
+gcc-arm-embedded:
     pkg.installed
 
 dfu-util:
