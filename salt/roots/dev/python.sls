@@ -8,11 +8,27 @@ python-dev:
 python3-dev:
     pkg.installed
 
-python-pip:
-    pkg.installed
+get-pip2:
+    cmd.run:
+        - cwd: /usr/src
+        - user: root
+        - name: |
+            curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+            python2 get-pip.py
+        - unless: /usr/local/bin/pip2
+        - require:
+            - pkg: curl
 
-python3-pip:
-    pkg.installed
+get-pip3:
+    cmd.run:
+        - cwd: /usr/src
+        - user: root
+        - name: |
+            curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+            python3 get-pip.py
+        - unless: /usr/local/bin/pip3
+        - require:
+            - pkg: curl
 
 # Numpy requirements
 libatlas-base-dev:
@@ -44,20 +60,22 @@ libopenblas-dev:
     "pyinotify",
     "sniffer",
     "cairocffi",
+    "sympy",
+    "jupyter"
 ]%}
 {{ pkg }}-python3:
     pip.installed:
         - name: {{ pkg }}
         - bin_env: /usr/local/bin/pip3
         - require:
-            - pkg: python3-pip
+            - cmd: get-pip3
 
 {{ pkg }}-python2:
     pip.installed:
         - name: {{ pkg }}
         - bin_env: /usr/local/bin/pip2
         - require:
-            - pkg: python-pip
+            - cmd: get-pip2
 {% endfor %}
 
 
@@ -67,16 +85,16 @@ fabric:
         - name: Fabric
         - bin_env: /usr/local/bin/pip2
         - require:
-            - pkg: python-pip
+            - cmd: get-pip2
 
 unittest2:
     pip.installed:
         - bin_env: /usr/local/bin/pip3
         - require:
-            - pkg: python3-pip
+            - cmd: get-pip3
 
 numpyson:
     pip.installed:
         - bin_env: /usr/local/bin/pip3
         - require:
-            - pkg: python3-pip
+            - cmd: get-pip3
