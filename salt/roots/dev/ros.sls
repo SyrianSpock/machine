@@ -11,6 +11,9 @@ ros_repo:
 
 {% for pkg in ["ros-indigo-desktop-full",
                "python-rosinstall", "python-catkin-tools",
+               "ros-indigo-navigation",
+               "ros-indigo-controller-manager",
+               "ros-indigo-diff-drive-controller",
 ] %}
 {{ pkg }}:
     pkg.installed:

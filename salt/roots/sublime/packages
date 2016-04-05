@@ -4,6 +4,8 @@
     [
         "BracketHighlighter",
         "Clipboard Diff",
+        "CMakeEditor",
+        "Dockerfile Syntax Highlighting",
         "Git",
         "GitGutter",
         "Markdown Preview",
