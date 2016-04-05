@@ -5,6 +5,7 @@ base:
         - tools
         - git
         - media
+        - xmonad
         - sublime
         - dev.cpp
         - dev.python
