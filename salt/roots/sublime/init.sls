@@ -10,7 +10,7 @@ sublime-text-installer:
 
 sublime-pkg-control:
     cmd.run:
-        - name: wget "https://sublime.wbond.net/Package Control.sublime-package"
+        - name: wget "https://sublime.wbond.net/Package Control.sublime-package" --no-check-certificate
         - cwd: "/home/salah/.config/sublime-text-3/Installed Packages"
         - user: salah
         - creates: "/home/salah/.config/sublime-text-3/Installed Packages/Package Control.sublime-package"
