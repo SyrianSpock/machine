@@ -5,8 +5,27 @@
 ubuntu-desktop:
     pkg.installed
 
-ambiance-colors:
+
+gnome-shell:
     pkg.installed
 
-radiance-colors:
+ubuntu-gnome-desktop:
     pkg.installed
+
+mate-ubuntu-destkop:
+    pkg.installed
+
+
+numix-repo:
+    pkgrepo.managed:
+        - ppa: numix/ppa
+
+numix-icon-theme-circle:
+    pkg.installed:
+        - require:
+            - pkgrepo: numix-repo
+
+numix-gtk-theme:
+    pkg.installed:
+        - require:
+            - pkgrepo: numix-repo
