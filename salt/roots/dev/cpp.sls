@@ -33,3 +33,4 @@ cpputest:
             ../configure
             make
             make install
+        - creates: /usr/local/lib/libCppUTest.a
