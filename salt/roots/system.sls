@@ -5,17 +5,6 @@
 ubuntu-desktop:
     pkg.installed
 
-
-gnome-shell:
-    pkg.installed
-
-ubuntu-gnome-desktop:
-    pkg.installed
-
-mate-ubuntu-destkop:
-    pkg.installed
-
-
 numix-repo:
     pkgrepo.managed:
         - ppa: numix/ppa
@@ -29,3 +18,30 @@ numix-gtk-theme:
     pkg.installed:
         - require:
             - pkgrepo: numix-repo
+
+ubuntu-tweak-repo:
+    pkgrepo.managed:
+        - ppa: tualatrix/ppa
+
+ubuntu-tweak:
+    pkg.installed:
+        - require:
+            - pkgrepo: ubuntu-tweak-repo
+
+mate-repo:
+    pkgrepo.managed:
+        - ppa: ubuntu-mate-dev/ppa
+
+mate-trusty-repo:
+    pkgrepo.managed:
+        - ppa: ubuntu-mate-dev/trusty-mate
+
+ubuntu-mate-core:
+    pkg.installed:
+        - require:
+            - pkgrepo: mate-trusty-repo
+
+ubuntu-mate-desktop:
+    pkg.installed:
+        - require:
+            - pkgrepo: mate-trusty-repo
