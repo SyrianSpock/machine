@@ -15,6 +15,9 @@ autoconf:
 automake:
     pkg.installed
 
+exuberant-ctags:
+    pkg.installed
+
 git://github.com/cpputest/cpputest.git:
     git.latest:
         - rev: master
