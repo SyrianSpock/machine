@@ -14,8 +14,11 @@ sublime-pkg-control:
         - cwd: "/home/salah/.config/sublime-text-3/Installed Packages"
         - user: salah
         - creates: "/home/salah/.config/sublime-text-3/Installed Packages/Package Control.sublime-package"
+        - makedirs: True
         - require:
             - pkg: sublime-text-installer
+        - require_in:
+            - file: sublime-packages
 
 sublime-packages:
     file.managed:
@@ -23,6 +26,7 @@ sublime-packages:
         - source: salt://sublime/packages
         - user: salah
         - force: True
+        - makedirs: True
 
 sublime-config:
     file.managed:
@@ -30,6 +34,7 @@ sublime-config:
         - source: salt://sublime/config
         - user: salah
         - force: True
+        - makedirs: True
 
 sublime-keybindings:
     file.managed:
@@ -37,3 +42,4 @@ sublime-keybindings:
         - source: salt://sublime/keybindings
         - user: salah
         - force: True
+        - makedirs: True
