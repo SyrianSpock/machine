@@ -1,7 +1,10 @@
 [Desktop Entry]
+Type=Application
 Encoding=UTF-8
-Name=XMonad
-Comment=Lightweight tiling window manager
-Exec=.xmonad/start-xmonad
-Icon=custom_xmonad_badge.png
-Type=XSession
+Name=Xmonad
+Exec=xmonad
+NoDisplay=true
+X-GNOME-WMName=Xmonad
+X-GNOME-Autostart-Phase=WindowManager
+X-GNOME-Provides=windowmanager
+X-GNOME-Autostart-Notify=false
