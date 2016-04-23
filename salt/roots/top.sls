@@ -14,6 +14,7 @@ base:
         - dev.ros
         - dev.ruby
         - dev.latex
+        - dev.realsense
         - vm.virtualbox
         - vm.docker
         - users
