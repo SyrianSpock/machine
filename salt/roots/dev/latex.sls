@@ -12,3 +12,6 @@ texlive-doc-en:
 
 texlive-latex-extra:
     pkg.installed
+
+texlive-science:
+    pkg.installed
