@@ -15,6 +15,7 @@ base:
         - dev.ruby
         - dev.latex
         - dev.realsense
+        - dev.orb_slam
         - vm.virtualbox
         - vm.docker
         - users
