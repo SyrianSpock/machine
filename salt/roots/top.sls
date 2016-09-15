@@ -6,6 +6,7 @@ base:
         - git
         - media
         - sublime
+        - i3
         - dev.cpp
         - dev.python
         - dev.arm-toolchain
