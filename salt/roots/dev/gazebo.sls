@@ -18,3 +18,23 @@ gazebo_repo:
         - require:
             - pkgrepo: gazebo_repo
 {% endfor %}
+
+gazebo_models:
+    cmd.run:
+        - name: |
+            wget -l 2 -nc -r "http://models.gazebosim.org/" --accept gz
+            cd "models.gazebosim.org"
+            for i in *
+            do
+              tar -zvxf "$i/model.tar.gz"
+            done
+            cp -vfR * ~/.gazebo/models/
+        - runas: salah
+        - unless: 'apt-key list | grep osrfoundation.org/gazebo'
+
+gazebo_source_setup:
+    file.append:
+        - name: "/etc/bash.bashrc"
+        - text:
+            - "source /usr/share/gazebo/setup.sh"
+            - "alias killgazebo="killall -9 gazebo & killall -9 gzserver  & killall -9 gzclient""
