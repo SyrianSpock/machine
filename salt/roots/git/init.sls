@@ -5,5 +5,5 @@ git-config:
     file.managed:
         - name: ~/.gitconfig
         - source: salt://git/config
-        - user: salah
+        - runas: salah
         - force: True

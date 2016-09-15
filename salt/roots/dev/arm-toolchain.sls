@@ -17,6 +17,7 @@ git://git.code.sf.net/p/openocd/code:
         - rev: master
         - target: /usr/src/openocd
         - user: root
+        - force_reset: True
         - require:
             - pkg: git
 

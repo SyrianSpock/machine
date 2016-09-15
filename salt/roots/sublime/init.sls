@@ -11,7 +11,7 @@ sublime-text-installer:
 sublime-pkg-control:
     cmd.run:
         - name: wget "https://sublime.wbond.net/Package Control.sublime-package" --no-check-certificate --force-directories -O "/home/salah/.config/sublime-text-3/Installed Packages/Package Control.sublime-package"
-        - user: salah
+        - runas: salah
         - creates: "/home/salah/.config/sublime-text-3/Installed Packages/Package Control.sublime-package"
         - makedirs: True
         - require:
@@ -23,7 +23,7 @@ sublime-packages:
     file.managed:
         - name: '~/.config/sublime-text-3/Packages/User/Package Control.sublime-settings'
         - source: salt://sublime/packages
-        - user: salah
+        - runas: salah
         - force: True
         - makedirs: True
 
@@ -31,7 +31,7 @@ sublime-config:
     file.managed:
         - name: ~/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
         - source: salt://sublime/config
-        - user: salah
+        - runas: salah
         - force: True
         - makedirs: True
 
@@ -39,6 +39,6 @@ sublime-keybindings:
     file.managed:
         - name: '~/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap'
         - source: salt://sublime/keybindings
-        - user: salah
+        - runas: salah
         - force: True
         - makedirs: True

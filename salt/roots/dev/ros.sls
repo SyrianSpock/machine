@@ -46,7 +46,7 @@ rosdep_init:
 rosdep_update:
     cmd.run:
         - name: "rosdep update"
-        - user: salah
+        - runas: salah
         - creates: "~/.ros/rosdep/"
 
 ros_source_setup:
@@ -59,13 +59,13 @@ ros_source_setup:
 catkin_workspace:
     file.directory:
         - name: "/home/salah/catkin_ws/src"
-        - user: salah
+        - runas: salah
         - group: salah
         - makedirs: True
 
     cmd.run:
         - name: "source /opt/ros/indigo/setup.bash; catkin_init_workspace"
-        - user: salah
+        - runas: salah
         - cwd: "/home/salah/catkin_ws/src"
         - creates: "/home/salah/catkin_ws/src/CMakeLists.txt"
         - require:
