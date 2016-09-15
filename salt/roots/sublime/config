@@ -49,6 +49,5 @@
     "translate_tabs_to_spaces": true,
     "trim_trailing_white_space_on_save": true,
     "wide_caret": true,
-    "word_wrap": true,
-    "wrap_width": 100
+    "word_wrap": true
 }
