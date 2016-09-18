@@ -18,9 +18,6 @@ tlp-repo:
             - pkgrepo: tlp-repo
 {% endfor %}
 
-ubuntu-desktop:
-    pkg.installed
-
 numix-repo:
     pkgrepo.managed:
         - ppa: numix/ppa
@@ -34,12 +31,3 @@ numix-gtk-theme:
     pkg.installed:
         - require:
             - pkgrepo: numix-repo
-
-ubuntu-tweak-repo:
-    pkgrepo.managed:
-        - ppa: tualatrix/ppa
-
-ubuntu-tweak:
-    pkg.installed:
-        - require:
-            - pkgrepo: ubuntu-tweak-repo
