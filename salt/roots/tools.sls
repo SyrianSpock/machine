@@ -1,6 +1,6 @@
 synapse_repo:
     pkgrepo.managed:
-        - ppa: elementary-os/unstable-upstream
+        - ppa: synapse-core/ppa
         - require_in:
             - pkg: synapse
 
