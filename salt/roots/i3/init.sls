@@ -1,6 +1,9 @@
 i3:
     pkg.installed
 
+xbacklight:
+    pkg.installed
+
 i3-config:
     file.managed:
         - name: ~/.i3/config

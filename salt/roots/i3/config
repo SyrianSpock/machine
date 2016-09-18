@@ -138,6 +138,10 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# Brightness control
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+
 # synapse fuzzy finder
 bindsym Ctrl+space exec synapse
 
@@ -164,3 +168,5 @@ bar {
 exec --no-startup-id feh --bg-fill Nature.png
 # Natural scrolling
 exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Scrolling Distance" -114, -114
+# Default backlight
+exec --no-startup-id xbacklight =20
