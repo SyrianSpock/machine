@@ -146,3 +146,7 @@ bindsym $mod+Shift+s exec i3lock && dbus-send --system --print-reply --dest=org.
 bar {
         status_command i3status
 }
+
+
+# startup applications
+exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Scrolling Distance" -114, -114
