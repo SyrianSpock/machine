@@ -30,7 +30,7 @@ openocd:
         ./configure --prefix=/usr/local
         make
         make install
-    - unless: /usr/local/bin/openocd
+    - unless: which /usr/local/bin/openocd
 
 /etc/udev/rules.d/90-openocd.rules:
     file.managed:
