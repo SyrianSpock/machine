@@ -11,3 +11,7 @@ i3-config:
         - source: salt://i3/config
         - runas: salah
         - force: True
+
+# PulseAudio Volume Control GUI
+pavucontrol:
+    pkg.installed
