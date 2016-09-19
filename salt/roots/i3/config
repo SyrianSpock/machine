@@ -151,6 +151,12 @@ bindsym XF86AudioMute exec "pactl set-sink-mute 0 toggle && pkill -RTMIN+1 i3blo
 # synapse fuzzy finder
 bindsym Ctrl+space exec synapse
 
+# screenshot
+bindsym Print exec gnome-screenshot --clipboard
+bindsym Control+Print exec gnome-screenshot --interactive
+bindsym Alt+Print exec gnome-screenshot --window
+bindsym Shift+Print exec gnome-screenshot --area
+
 # lock computer
 bindsym $mod+Shift+l exec i3lock
 
