@@ -2,7 +2,6 @@ base:
     '*':
         - core
         - system
-        - tools
         - git
         - media
         - sublime

@@ -53,10 +53,6 @@ pavucontrol:
 sysstat:
     pkg.installed
 
-# Battery stats
-acpi:
-    pkg.installed
-
 # Background setter
 feh:
     pkg.installed
