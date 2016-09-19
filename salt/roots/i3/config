@@ -18,13 +18,20 @@ font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango: Ubuntu Mono 14
+font pango: Ubuntu Mono 20
 
-# Set colors
-client.focused          #3F8AC2 #096BAA #00BAA7 #00DA8E
-client.focused_inactive #333333 #5F676A #ffffff #484e50
-client.unfocused        #333333 #424242 #888888 #292d2e
-client.urgent           #C10004 #900000 #ffffff #900000
+set $bg-color            #096BAA
+set $inactive-bg-color   #2f343f
+set $text-color          #f3f4f5
+set $inactive-text-color #676E7D
+set $urgent-bg-color     #E53935
+
+# window colors
+#                       border              background         text                 indicator
+client.focused          $bg-color           $bg-color          $text-color          #00ff00
+client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
+client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color #00ff00
+client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -114,12 +121,6 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym j resize shrink width 2 px or 2 ppt
         bindsym k resize grow height 2 px or 2 ppt
         bindsym l resize shrink height 2 px or 2 ppt
@@ -151,7 +152,7 @@ bindsym XF86AudioMute exec "pactl set-sink-mute 0 toggle"
 bindsym Ctrl+space exec synapse
 
 # lock computer
-bindsym $mod+l exec i3lock
+bindsym $mod+Shift+l exec i3lock
 
 # suspend computer
 bindsym $mod+Shift+s exec i3lock && dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Suspend" boolean:true
@@ -162,15 +163,19 @@ bar {
         position top
         status_command i3status
         tray_output LVDS
-        colors{
-                background #232323
-                statusline #DCDCDC
+        colors {
+                background $inactive-bg-color
+                separator #757575
+                #                  border             background         text
+                focused_workspace  $bg-color          $bg-color          $text-color
+                inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
+                urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
         }
 }
 
 ### Startup applications
 # Background
-exec --no-startup-id feh --bg-fill Nature.png
+exec --no-startup-id feh --bg-fill ~/.i3/Nature.png
 # Natural scrolling
 exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Scrolling Distance" -114, -114
 # Default backlight
