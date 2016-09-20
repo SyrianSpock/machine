@@ -56,5 +56,3 @@ synapse_repo:
 synapse:
     pkg.installed
 
-gimp:
-    pkg.installed
