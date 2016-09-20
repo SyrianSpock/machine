@@ -28,13 +28,14 @@ gazebo_models:
             do
               tar -zvxf "$i/model.tar.gz"
             done
+            mkdir -p ~/.gazebo/models/
             cp -vfR * ~/.gazebo/models/
         - runas: salah
-        - unless: 'apt-key list | grep osrfoundation.org/gazebo'
+        - unless: 'ls  ~/.gazebo/models/'
 
 gazebo_source_setup:
     file.append:
         - name: "/etc/bash.bashrc"
         - text:
-            - "source /usr/share/gazebo/setup.sh"
-            - "alias killgazebo="killall -9 gazebo & killall -9 gzserver  & killall -9 gzclient""
+            - source /usr/share/gazebo/setup.sh
+            - alias killgazebo="killall -9 gazebo & killall -9 gzserver  & killall -9 gzclient"
