@@ -7,5 +7,4 @@ salah:
             - sudo
             - dialout
             - plugdev
-            - vboxusers
             - docker

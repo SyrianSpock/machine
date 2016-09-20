@@ -1,7 +1,7 @@
 ros_repo:
     pkgrepo.managed:
-        - name: deb http://packages.ros.org/ros/ubuntu trusty main
-        - dist: trusty
+        - name: deb http://packages.ros.org/ros/ubuntu xenial main
+        - dist: xenial
         - file: /etc/apt/sources.list.d/ros-latest.list
         - key_url: https://raw.githubusercontent.com/ros/rosdistro/master/ros.key
 
@@ -9,11 +9,11 @@ ros_repo:
         - name: 'wget https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -O - | sudo apt-key add -'
         - unless: 'apt-key list | grep ros.org'
 
-{% for pkg in ["ros-indigo-desktop-full",
+{% for pkg in ["ros-kinetic-desktop-full",
                "python-rosinstall", "python-catkin-tools",
-               "ros-indigo-navigation",
-               "ros-indigo-controller-manager",
-               "ros-indigo-diff-drive-controller",
+               "ros-kinetic-navigation",
+               "ros-kinetic-controller-manager",
+               "ros-kinetic-diff-drive-controller",
 ] %}
 {{ pkg }}:
     pkg.installed:
@@ -53,7 +53,7 @@ ros_source_setup:
     file.append:
         - name: "/etc/bash.bashrc"
         - text:
-            - "source /opt/ros/indigo/setup.bash"
+            - "source /opt/ros/kinetic/setup.bash"
             - "source ~/catkin_ws/devel/setup.bash"
 
 catkin_workspace:
@@ -64,7 +64,7 @@ catkin_workspace:
         - makedirs: True
 
     cmd.run:
-        - name: "source /opt/ros/indigo/setup.bash; catkin_init_workspace"
+        - name: "source /opt/ros/kinetic/setup.bash; catkin_init_workspace"
         - runas: salah
         - cwd: "/home/salah/catkin_ws/src"
         - creates: "/home/salah/catkin_ws/src/CMakeLists.txt"

@@ -9,8 +9,8 @@ apparmor:
 
 docker_repo:
     pkgrepo.managed:
-        - name: deb https://apt.dockerproject.org/repo ubuntu-trusty main
-        - dist: ubuntu-trusty
+        - name: deb https://apt.dockerproject.org/repo ubuntu-xenial main
+        - dist: ubuntu-xenial
         - file: /etc/apt/sources.list.d/docker.list
         - keyid: 58118E89F3A912897C070ADBF76221572C52609D
         - keyserver: hkp://p80.pool.sks-keyservers.net:80

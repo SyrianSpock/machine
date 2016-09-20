@@ -1,7 +1,7 @@
 gazebo_repo:
     pkgrepo.managed:
-        - name: deb http://packages.osrfoundation.org/gazebo/ubuntu-stable trusty main
-        - dist: trusty
+        - name: deb http://packages.osrfoundation.org/gazebo/ubuntu-stable xenial main
+        - dist: xenial
         - file: /etc/apt/sources.list.d/gazebo-stable.list
         - key_url: http://packages.osrfoundation.org/gazebo.key
 

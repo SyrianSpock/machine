@@ -18,6 +18,9 @@ automake:
 exuberant-ctags:
     pkg.installed
 
+libtool-bin:
+    pkg.installed
+
 git://github.com/cpputest/cpputest.git:
     git.latest:
         - rev: master
