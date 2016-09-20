@@ -8,6 +8,7 @@ base:
         - dev.python
         - dev.ros
         - dev.gazebo
+        - dev.bebop
         - nvidia
         - vm.docker
         - users
