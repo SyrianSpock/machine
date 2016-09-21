@@ -9,6 +9,7 @@ base:
         - dev.ros
         - dev.gazebo
         - dev.bebop
+        - dev.opencv
         - nvidia
         - vm.docker
         - users
