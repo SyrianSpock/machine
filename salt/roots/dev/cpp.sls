@@ -40,3 +40,23 @@ cpputest:
             make
             make install
         - creates: /usr/local/lib/libCppUTest.a
+
+uncrustify:
+    git.latest:
+        - name: git://github.com/uncrustify/uncrustify
+        - rev: master
+        - target: /usr/src/uncrustify
+        - user: root
+        - require:
+            - pkg: git
+
+    cmd.run:
+        - cwd: /usr/src/uncrustify
+        - user: root
+        - name: |
+            mkdir -p build
+            cd build
+            cmake -DCMAKE_BUILD_TYPE=Release ..
+            make
+            make install
+        - unless: which uncrustify
