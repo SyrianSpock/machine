@@ -44,3 +44,4 @@ opencv:
             cmake -D CMAKE_BUILD_TYPE=Debug -D CMAKE_INSTALL_PREFIX=/usr/local -D WITH_MATLAB=OFF ..
             make -j7
             make install
+        - unless: ls /usr/local/lib/libopencv_core.so
