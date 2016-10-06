@@ -14,6 +14,7 @@ ros_repo:
                "ros-kinetic-navigation",
                "ros-kinetic-controller-manager",
                "ros-kinetic-diff-drive-controller",
+               "ros-kinetic-joint-state-controller",
 ] %}
 {{ pkg }}:
     pkg.installed:
