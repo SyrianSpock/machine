@@ -141,6 +141,18 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+# move window accross outputs
+mode "move-window" {
+        # same bindings, but for the arrow keys
+        bindsym Left exec "i3-msg move workspace to output left"
+        bindsym Right exec "i3-msg move workspace to output right"
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+Shift+y mode "move-window"
+
 # Brightness control
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
 bindsym XF86MonBrightnessUp exec xbacklight -inc 5
