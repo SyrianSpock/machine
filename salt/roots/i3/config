@@ -209,5 +209,7 @@ exec --no-startup-id amixer -q sset Master,0 50 mute
 exec --no-startup-id unity-settings-daemon
 # Keyring
 exec --no-startup-id gnome-keyring-daemon --start
+# Network
+exec --no-startup-id nm-applet
 # Disable SSH
 exec --no-startup-id sudo service ssh stop
