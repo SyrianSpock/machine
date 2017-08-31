@@ -9,7 +9,9 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+#Basic settings
 set $mod Mod4
+set $default_terminal i3-sensible-terminal
 
 set $lock_screen i3lock -i ~/.i3/Nature.png
 
@@ -39,7 +41,7 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec $default_terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
