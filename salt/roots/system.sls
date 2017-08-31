@@ -10,6 +10,7 @@ tlp-repo:
     "tlp",
     "tlp-rdw",
     "tp-smapi-dkms",
+    "acpi"
     "acpi-call-dkms"
 ]%}
 {{ pkg }}:
@@ -17,29 +18,3 @@ tlp-repo:
         - require:
             - pkgrepo: tlp-repo
 {% endfor %}
-
-ubuntu-desktop:
-    pkg.installed
-
-numix-repo:
-    pkgrepo.managed:
-        - ppa: numix/ppa
-
-numix-icon-theme-circle:
-    pkg.installed:
-        - require:
-            - pkgrepo: numix-repo
-
-numix-gtk-theme:
-    pkg.installed:
-        - require:
-            - pkgrepo: numix-repo
-
-ubuntu-tweak-repo:
-    pkgrepo.managed:
-        - ppa: tualatrix/ppa
-
-ubuntu-tweak:
-    pkg.installed:
-        - require:
-            - pkgrepo: ubuntu-tweak-repo

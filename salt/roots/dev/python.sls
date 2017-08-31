@@ -15,7 +15,7 @@ get-pip2:
         - name: |
             curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
             python2 get-pip.py
-        - unless: /usr/local/bin/pip2
+        - unless: /usr/local/bin/pip2 --version
         - require:
             - pkg: curl
 
@@ -26,7 +26,7 @@ get-pip3:
         - name: |
             curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
             python3 get-pip.py
-        - unless: /usr/local/bin/pip3
+        - unless: /usr/local/bin/pip3 --version
         - require:
             - pkg: curl
 
