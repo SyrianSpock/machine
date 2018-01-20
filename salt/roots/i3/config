@@ -196,8 +196,6 @@ bar {
 }
 
 ### Startup applications
-# Background
-exec --no-startup-id feh --bg-fill ~/.i3/Nature.png
 # Natural scrolling
 exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "Synaptics Scrolling Distance" -114, -114
 # Default backlight
@@ -213,3 +211,7 @@ exec --no-startup-id gnome-keyring-daemon --start
 exec --no-startup-id nm-applet
 # Disable SSH
 exec --no-startup-id sudo service ssh stop
+# Fix hidpi
+exec --no-startup-id xrandr -s 1920x1080
+# Background
+exec --no-startup-id feh --bg-fill ~/.i3/Nature.png
