@@ -37,4 +37,4 @@ gazebo_source_setup:
         - name: "/etc/bash.bashrc"
         - text:
             - "source /usr/share/gazebo/setup.sh"
-            - "alias killgazebo="killall -9 gazebo & killall -9 gzserver  & killall -9 gzclient""
+            - 'alias killgazebo="killall -9 gazebo & killall -9 gzserver  & killall -9 gzclient"'
