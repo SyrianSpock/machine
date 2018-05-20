@@ -1,21 +1,24 @@
 sublime_text_repo:
     # Package repository
     pkgrepo.managed:
-        - ppa: webupd8team/sublime-text-3
-        - require_in:
-            - pkg: sublime-text-installer
+        - name: deb https://download.sublimetext.com/ apt/dev/
+        - file: /etc/apt/sources.list.d/sublime-text.list
+        - key_url: https://download.sublimetext.com/sublimehq-pub.gpg
+    cmd.run:
+        - name: 'wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -'
+        - unless: 'apt-key list | grep sublime'
 
-sublime-text-installer:
+sublime-text:
     pkg.installed
 
 sublime-pkg-control:
     cmd.run:
-        - name: wget "https://sublime.wbond.net/Package Control.sublime-package" --no-check-certificate --force-directories -O "/home/salah/.config/sublime-text-3/Installed Packages/Package Control.sublime-package"
+        - name: mkdir -p "/home/salah/.config/sublime-text-3/Installed Packages" && wget "https://sublime.wbond.net/Package Control.sublime-package" --no-check-certificate --force-directories -O "/home/salah/.config/sublime-text-3/Installed Packages/Package Control.sublime-package"
         - runas: salah
         - creates: "/home/salah/.config/sublime-text-3/Installed Packages/Package Control.sublime-package"
         - makedirs: True
         - require:
-            - pkg: sublime-text-installer
+            - pkg: sublime-text
         - require_in:
             - file: sublime-packages
 
