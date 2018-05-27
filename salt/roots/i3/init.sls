@@ -1,9 +1,6 @@
 i3:
     pkg.installed
 
-xbacklight:
-    pkg.installed
-
 ruby-ronn:
     pkg.installed:
         - require_in:
@@ -56,3 +53,23 @@ sysstat:
 # Background setter
 feh:
     pkg.installed
+
+git://github.com/multiplexd/brightlight:
+    git.latest:
+        - target: /usr/src/brightlight
+        - user: root
+        - force_reset: True
+        - require:
+            - pkg: git
+        - require_in:
+            - cmd: brightlight
+
+brightlight:
+    cmd.run:
+        - cwd: /usr/src/brightlight
+        - user: root
+        - name: |
+            make
+            chmod +s brightlight
+            cp brightlight /usr/local/bin/
+        - unless: which /usr/local/bin/brightlight
