@@ -73,3 +73,6 @@ brightlight:
             chmod +s brightlight
             cp brightlight /usr/local/bin/
         - unless: which /usr/local/bin/brightlight
+
+acpi:
+    pkg.installed
