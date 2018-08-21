@@ -14,9 +14,6 @@ screen:
 tmux:
     pkg.installed
 
-minicom:
-    pkg.installed
-
 aptitude:
     pkg.installed
 
