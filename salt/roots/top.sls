@@ -9,12 +9,12 @@ base:
         - dev.cpp
         - dev.python
         - dev.arm-toolchain
-        - dev.kicad
+#        - dev.kicad
         - dev.ros
-        - dev.ruby
-        - dev.latex
-        - dev.realsense
-        - dev.orb_slam
+#        - dev.ruby
+#        - dev.latex
+#        - dev.realsense
+#        - dev.orb_slam
         - vm.virtualbox
         - vm.docker
         - users
