@@ -215,4 +215,4 @@ exec --no-startup-id sudo service ssh stop
 # Fix hidpi
 exec --no-startup-id xrandr -s 1920x1080
 # Background
-exec --no-startup-id feh --bg-fill ~/.i3/Nature.jpg
+exec --no-startup-id feh --bg-max ~/.i3/Nature.png

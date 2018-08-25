@@ -34,6 +34,14 @@ i3-config:
         - runas: salah
         - force: True
 
+i3-background:
+    file.managed:
+        - name: ~/.i3/Nature.png
+        - makedirs: True
+        - source: salt://i3/Nature.png
+        - runas: salah
+        - force: True
+
 i3blocks-config:
     file.managed:
         - name: ~/.i3/i3blocks.conf
