@@ -54,6 +54,9 @@ sysstat:
 feh:
     pkg.installed
 
+libbsd-dev:
+    pkg.installed
+
 git://github.com/multiplexd/brightlight:
     git.latest:
         - target: /usr/src/brightlight
@@ -73,6 +76,13 @@ brightlight:
             chmod +s brightlight
             cp brightlight /usr/local/bin/
         - unless: which /usr/local/bin/brightlight
+        - require: 
+            - pkg: libbsd-dev
+
+brightlight-no-sudo:
+    file.append:
+        - name: /etc/sudoers
+        - text: "username ALL= NOPASSWD: /usr/local/bin/brightlight"
 
 acpi:
     pkg.installed

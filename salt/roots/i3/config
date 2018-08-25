@@ -156,8 +156,8 @@ mode "move-window" {
 bindsym $mod+Shift+y mode "move-window"
 
 # Brightness control
-bindsym XF86MonBrightnessDown exec brightlight -d 20
-bindsym XF86MonBrightnessUp exec brightlight -i 20
+bindsym XF86MonBrightnessDown exec sudo brightlight -p -d 3
+bindsym XF86MonBrightnessUp exec sudo brightlight -p -i 3
 
 # Audio control
 bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1+ unmute"
@@ -199,7 +199,7 @@ bar {
 # Natural scrolling
 exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 1
 # Default backlight
-exec --no-startup-id brightlight -w 100
+exec --no-startup-id sudo rightlight -p -w 20
 # Default sound volume
 exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id amixer -q sset Master,0 50 mute
