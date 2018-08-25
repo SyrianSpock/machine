@@ -8,17 +8,6 @@ python-dev:
 python3-dev:
     pkg.installed
 
-get-pip2:
-    cmd.run:
-        - cwd: /usr/src
-        - user: root
-        - name: |
-            curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
-            python2 get-pip.py
-        - unless: /usr/local/bin/pip2 --version
-        - require:
-            - pkg: curl
-
 get-pip3:
     cmd.run:
         - cwd: /usr/src
@@ -57,15 +46,14 @@ libopenblas-dev:
     "sklearn",
     "scikit-image",
     "theano",
-    "lasagne",
-    "scikit-neuralnetwork",
     "ipython",
     "nose",
     "pyinotify",
     "sniffer",
     "cairocffi",
     "sympy",
-    "jupyter"
+    "jupyter",
+    "numpyson",
 ]%}
 {{ pkg }}-python3:
     pip.installed:
@@ -73,32 +61,4 @@ libopenblas-dev:
         - bin_env: /usr/local/bin/pip3
         - require:
             - cmd: get-pip3
-
-{{ pkg }}-python2:
-    pip.installed:
-        - name: {{ pkg }}
-        - bin_env: /usr/local/bin/pip2
-        - require:
-            - cmd: get-pip2
 {% endfor %}
-
-
-# Fabric is a python 2 only package
-fabric:
-    pip.installed:
-        - name: Fabric
-        - bin_env: /usr/local/bin/pip2
-        - require:
-            - cmd: get-pip2
-
-unittest2:
-    pip.installed:
-        - bin_env: /usr/local/bin/pip3
-        - require:
-            - cmd: get-pip3
-
-numpyson:
-    pip.installed:
-        - bin_env: /usr/local/bin/pip3
-        - require:
-            - cmd: get-pip3
