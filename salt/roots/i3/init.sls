@@ -84,7 +84,7 @@ brightlight:
             chmod +s brightlight
             cp brightlight /usr/local/bin/
         - unless: which /usr/local/bin/brightlight
-        - require: 
+        - require:
             - pkg: libbsd-dev
 
 brightlight-no-sudo:
@@ -94,3 +94,14 @@ brightlight-no-sudo:
 
 acpi:
     pkg.installed
+
+gogh:
+    cmd.run:
+        - cwd: /tmp
+        - runas: salah
+        - name : |
+            wget -O gogh https://git.io/vQgMr
+            chmod +x gogh
+            ./gogh
+            rm gogh
+        - unless: which gogh
