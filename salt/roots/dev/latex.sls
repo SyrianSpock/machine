@@ -7,9 +7,6 @@ texlive-lang-english:
 texlive-lang-french:
     pkg.installed
 
-texlive-doc-en:
-    pkg.installed
-
 texlive-latex-extra:
     pkg.installed
 

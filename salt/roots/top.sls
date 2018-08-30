@@ -12,7 +12,7 @@ base:
 #        - dev.kicad
         - dev.ros
 #        - dev.ruby
-#        - dev.latex
+        - dev.latex
 #        - dev.realsense
 #        - dev.orb_slam
         - vm.virtualbox
