@@ -165,7 +165,7 @@ bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1- unmute"
 bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 
 # synapse fuzzy finder
-bindsym Ctrl+space exec synapse
+bindsym Ctrl+space exec synapse -s
 
 # screenshot
 bindsym Print exec gnome-screenshot --clipboard

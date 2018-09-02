@@ -1,6 +1,6 @@
 salah:
     user.present:
-        - fullname: Salah-Eddine Missri
+        - fullname: Salah
         - shell: /usr/bin/fish
         - home: /home/salah
         - groups:
