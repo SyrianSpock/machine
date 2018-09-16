@@ -203,7 +203,7 @@ exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapp
 exec --no-startup-id sudo rightlight -p -w 20
 # Default sound volume
 exec --no-startup-id start-pulseaudio-x11
-exec --no-startup-id amixer -q sset Master,0 50 mute
+exec --no-startup-id pactl set-sink-mute 0 true
 # Unity settings
 exec --no-startup-id unity-settings-daemon
 # Keyring
