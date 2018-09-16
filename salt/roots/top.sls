@@ -13,7 +13,7 @@ base:
         - dev.ros
 #        - dev.ruby
         - dev.latex
-#        - dev.realsense
+        - dev.realsense
 #        - dev.orb_slam
         - vm.virtualbox
         - vm.docker
