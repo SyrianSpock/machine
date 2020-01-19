@@ -1,0 +1,9 @@
+---
+- name: Install Docker
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - apparmor
+      - docker.io
+    state: latest

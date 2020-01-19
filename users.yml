@@ -1,0 +1,11 @@
+---
+- name: Add main user to groups
+  user:
+    name: salah
+    shell: /bin/fish
+    groups:
+      - sudo
+      - dialout
+      - plugdev
+      - vboxusers
+      - docker

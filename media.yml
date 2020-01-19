@@ -1,0 +1,9 @@
+---
+- name:
+  apt:
+    name: ubuntu-restricted-extras
+    state: latest
+- name:
+  apt:
+    name: vlc
+    state: latest
