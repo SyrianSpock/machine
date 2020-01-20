@@ -1,0 +1,93 @@
+- name: Install i3 WM
+  apt:
+    name: i3
+    state: latest
+
+- name: Install ruby-ronn required by i3blocks
+  apt:
+    name: ruby-ronn
+    state: latest
+- name: Git clone i3blocks
+  git:
+    repo: 'git://github.com/vivien/i3blocks'
+    dest: /usr/src/i3blocks
+    version: 1.4
+- name: Install i3blocks
+  shell: make clean debug && make install
+  args:
+    chdir: /usr/src/i3blocks
+    creates: /usr/local/bin/i3blocks
+
+- name: Setup i3 config
+  copy:
+    src: files/i3_config
+    dest: /home/salah/.i3/config
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Setup i3 background image
+  copy:
+    src: files/Dune.png
+    dest: /home/salah/.i3/Dune.png
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Setup i3 config
+  copy:
+    src: files/i3blocks.conf
+    dest: /home/salah/.i3/i3blocks.conf
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Install PulseAudio Volume Control GUI
+  apt:
+    name: pavucontrol
+    state: latest
+
+- name: Install System stats (CPU load)
+  apt:
+    name: sysstat
+    state: latest
+
+- name: Install Background setter
+  apt:
+    name: feh
+    state: latest
+
+- name: Install libbsd-dev
+  apt:
+    name: libbsd-dev
+    state: latest
+
+- name: Git clone brightlight
+  git:
+    repo: 'git://github.com/multiplexd/brightlight'
+    dest: /usr/src/brightlight
+    version: master
+- name: Install brightlight
+  shell: make && chmod +s brightlight && cp brightlight /usr/local/bin/
+  args:
+    chdir: /usr/src/brightlight
+    creates: /usr/local/bin/brightlight
+
+- name: Ensure no sudo needed by brightlight
+  lineinfile:
+    path: /etc/sudoers
+    regexp: ''
+    insertafter: ''
+    line: "username ALL= NOPASSWD: /usr/local/bin/brightlight"
+
+- name: Install ACPI
+  apt:
+    name: acpi
+    state: latest
+
+
+- name: Install brightlight
+  shell: wget -O gogh https://git.io/vQgMr && chmod +x gogh && ./gogh && gogh
+  args:
+    chdir: /tmp
+    creates: gogh

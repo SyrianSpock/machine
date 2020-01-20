@@ -1,0 +1,54 @@
+- name: Does the Sublime Text apt file exist?
+  stat:
+    path: /etc/apt/sources.list.d/sublime-text.list
+  register: subl_apt_exists
+
+- name: Add Sublime Text key
+  apt_key:
+    url: https://download.sublimetext.com/sublimehq-pub.gpg
+    state: present
+  when: subl_apt_exists == 1
+- name: Add Sublime Text repo
+  copy:
+    content: "deb https://download.sublimetext.com/ apt/dev/"
+    dest: /etc/apt/sources.list.d/sublime-text.list
+    owner: root
+    group: root
+    mode: 644
+  when: subl_apt_exists == 1
+- name: Update apt cache
+  apt: update_cache=yes
+  when: subl_apt_exists == 1
+- name: Install Sublime Text 3
+  apt:
+    name: sublime-text
+    state: latest
+
+- name: Setup Sublime Text packages folder
+  shell: mkdir -p "/home/salah/.config/sublime-text-3/Installed Packages" && wget "https://sublime.wbond.net/Package Control.sublime-package" --no-check-certificate --force-directories -O "/home/salah/.config/sublime-text-3/Installed Packages/Package Control.sublime-package"
+  args:
+    creates: "/home/salah/.config/sublime-text-3/Installed Packages"
+
+- name: Setup Sublime Text packages
+  copy:
+    src: files/subl_packages
+    dest: /home/salah/.config/sublime-text-3/Packages/User/Package Control.sublime-settings
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Setup Sublime Text config
+  copy:
+    src: files/subl_config
+    dest: /home/salah/.config/sublime-text-3/Packages/User/Preferences.sublime-settings
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Setup Sublime Text shortcuts
+  copy:
+    src: files/subl_keybindings
+    dest: /home/salah/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap
+    owner: root
+    group: root
+    mode: '0644'

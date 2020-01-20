@@ -2,17 +2,20 @@
 - hosts: 127.0.0.1
   connection: local
   become: yes
-  vars:
-    - apt_file: /etc/apt/sources.list.d/google-chrome.list
   tasks:
     - name: Update repository and Upgrade packages
       apt:
         upgrade: dist
         update_cache: yes
+    - name: Install core packages
+      include: core.yml
     - name: Install Docker
       include: docker.yml
 
-    - name: Install core packages
-      include: core.yml
+    - name: Install Sublime Text
+      include: sublime-text.yml
+    - name: Install i3WM
+      include: i3.yml
+
     - name: Setup groups and users
       include: users.yml

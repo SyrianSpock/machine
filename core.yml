@@ -1,75 +1,91 @@
 ---
-- name:
+- name: Ensure udate manager folder exists
+  file:
+      path: /etc/update-manager
+      recurse: yes
+      state: directory
+- name: Hide release upgrade prompt
+  copy:
+    src: files/release-upgrades
+    dest: /etc/update-manager/release-upgrades
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Install Vim
   apt:
     name: vim
     state: latest
-- name:
+- name: Install Mercurial
   apt:
     name: mercurial
     state: latest
 # Friendly Interactive SHell
-- name:
+- name: Install Fish shell
   apt:
     name: fish
     state: latest
-- name:
+- name: Install Screen
   apt:
     name: screen
     state: latest
-- name:
+- name: Install T.mux
   apt:
     name: tmux
     state: latest
-- name:
+- name: Install Aptitude
   apt:
     name: aptitude
     state: latest
-- name:
+- name: Install Ag
   apt:
     name: silversearcher-ag
     state: latest
-- name:
+- name: Install Htop
   apt:
     name: htop
     state: latest
-- name:
+- name: Install Curl
   apt:
     name: curl
     state: latest
-- name:
+- name: Install Chromium
   apt:
     name: chromium-browser
     state: latest
-- name: Does the Google apt file exist?
-  command: test -f {{apt_file}}
-  register: google_apt_exists
-  ignore_errors: True
 
+- name: Does the Google apt file exist?
+  stat:
+    path: /etc/apt/sources.list.d/google-chrome.list
+  register: google_apt_exists
+
+  ignore_errors: True
 - name: Add Google Chrome key
-  shell: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-  when: google_apt_exists.rc == 1
-- name: Add Google Chrome repo
-  copy: content="deb http://dl.google.com/linux/chrome/deb/ stable main" dest={{apt_file}} owner=root group=root mode=644
-  when: google_apt_exists.rc == 1
-- name: Update apt cache
-  apt: update_cache=yes
-  when: google_apt_exists.rc == 1
-- name: Install Google Chrome
-  apt: pkg=google-chrome-stable state=installed
-- name: Add an Apt signing key, will not download if present
   apt_key:
     url: https://dl-ssl.google.com/linux/linux_signing_key.pub
     state: present
-- name:
+  when: google_apt_exists == 1
+- name: Add Google Chrome repo
+  copy:
+    content: "deb http://dl.google.com/linux/chrome/deb/ stable main"
+    dest: /etc/apt/sources.list.d/google-chrome.list
+    owner: root
+    group: root
+    mode: 644
+  when: google_apt_exists == 1
+- name: Update apt cache
+  apt: update_cache=yes
+  when: google_apt_exists == 1
+- name: Install Google Chrome
   apt:
     name: google-chrome-stable
     state: latest
 
-- name:
+- name: Install Synapse
   apt:
     name: synapse
     state: latest
-- name:
+- name: Install Gimp
   apt:
     name: gimp
     state: latest

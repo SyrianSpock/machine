@@ -1,8 +1,0 @@
----
-- name: Install Virtual Box
-  apt:
-    name:
-      - virtualbox
-      - virtualbox-ext-pack
-      - dkms
-    state: latest
